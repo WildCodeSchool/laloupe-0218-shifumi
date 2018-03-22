@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,13 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AppComponent {
   items: Observable<any[]>;
-  constructor(db: AngularFirestore){
+  constructor(db: AngularFirestore, public afAuth: AngularFireAuth){
     this.items = db.collection('items').valueChanges();
+  }
+  login() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+  logout() {
+    this.afAuth.auth.signOut();
   }
 }

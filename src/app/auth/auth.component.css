@@ -1,17 +1,26 @@
 button {
+	height: 40px;
     padding:6px 10px 6px 10px;
 	font:Bold 13px Arial;
-	background: white;
-	color: red;
+	background: silver;
+	color: white;
 	border-radius:2px;
     border:none;
     cursor:pointer;
 	text-transform:capitalize;
+	margin-left: 20px;
+}
+button:hover {
+	background-color: tomato;
+	box-shadow: 1px 1px 1px tomato;
 }
 .signOut {
 	display: flex;
 	flex-direction: row;
+	align-items: flex-end;
+	height: 40px;
 }
-#btnSignOut {
-	margin-left: 20px;
+h3 {
+	font-size: 20px;
+	font-weight: bold;
 }

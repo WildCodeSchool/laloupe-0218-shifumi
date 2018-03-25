@@ -1,8 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<app-navbar></app-navbar>
 <div style="text-align:center">
-  <h1>
-    {{ title }}
-  </h1>
 <!--
 <ul>
   <li class="text" *ngFor="let item of items | async">
@@ -11,11 +9,4 @@
 </ul>
 -->
 
-<div *ngIf="afAuth.authState | async as user; else showLogin">
-  <h1>Bonjour {{ user.displayName }} !</h1>
-  <button (click)="logout()">Se deconnecter</button>
-</div>
-<ng-template #showLogin>
-  <p>Veulliez vous connecter pour continuer :</p>
-  <button class="googleBtnCo" (click)="login()">Se connecter avec Google</button>
-</ng-template>
+

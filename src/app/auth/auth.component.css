@@ -1,0 +1,17 @@
+button {
+    padding:6px 10px 6px 10px;
+	font:Bold 13px Arial;
+	background: white;
+	color: red;
+	border-radius:2px;
+    border:none;
+    cursor:pointer;
+	text-transform:capitalize;
+}
+.signOut {
+	display: flex;
+	flex-direction: row;
+}
+#btnSignOut {
+	margin-left: 20px;
+}

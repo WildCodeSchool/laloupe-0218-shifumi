@@ -12,13 +12,8 @@ import * as firebase from 'firebase/app';
 export class AppComponent {
   title =  "Shifumi";
   items: Observable<any[]>;
-  constructor(db: AngularFirestore, public afAuth: AngularFireAuth){
+  constructor(db: AngularFirestore){
     this.items = db.collection('items').valueChanges();
   }
-  login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  }
-  logout() {
-    this.afAuth.auth.signOut();
-  }
+  
 }

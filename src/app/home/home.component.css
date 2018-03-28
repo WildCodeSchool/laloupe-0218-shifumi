@@ -1,0 +1,16 @@
+.but1 {
+	height: 40px;
+    padding:6px 10px 6px 10px;
+	font:Bold 13px Arial;
+	background: silver;
+	color: white;
+	border-radius:2px;
+    border:none;
+    cursor:pointer;
+	text-transform:capitalize;
+	margin-left: 20px;
+}
+.but1:hover {
+    background-color: royalblue;
+	box-shadow: 1px 1px 1px royalblue;
+}

@@ -1,0 +1,8 @@
+<div *ngIf="afAuth.authState | async as user; else showLogin" class="signOut">
+    <h4>{{ user.displayName }}&emsp;</h4>
+    <img src="{{ user.photoURL }}"/>
+    <button (click)="logout()">Sign out</button>
+  </div>
+  <ng-template #showLogin>
+    <button (click)="login()">login with google</button>
+  </ng-template>

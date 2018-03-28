@@ -1,0 +1,19 @@
+<div *ngIf="auth.user | async; then authenticated else guest">
+  <!-- template will replace this div -->
+</div>
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+
+  <p>Login to get started...</p>
+  <app-connect></app-connect>
+</ng-template>
+
+
+<!-- User logged in -->
+<ng-template #authenticated>
+<div *ngIf="auth.user | async as user">
+</div>
+<!-- ici doit venir le app du jeu -->
+<p>GAME PAGE</p>
+</ng-template>

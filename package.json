@@ -7,7 +7,7 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
-    "lint:style": "stylelint 'src/app/**/*{.css,.scss,.html}'",
+    "lint:style": "stylelint 'src/app/**/*{.css,.scss}'",
     "lint:js": "ng lint",
     "lint:html": "htmllint src/**/*.html",
     "lh": "lighthouse-ci",

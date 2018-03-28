@@ -17,6 +17,7 @@ import { GameComponent } from './game/game.component';
 
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
+import { ConnectComponent } from './connect/connect.component';
 
 
 const appRoutes: Routes = [
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     AuthComponent,
     HomeComponent,
-    GameComponent
+    GameComponent,
+    ConnectComponent
   ],
   imports: [
     BrowserModule,

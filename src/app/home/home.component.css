@@ -16,6 +16,7 @@ button {
     box-shadow: 0px 0px 2px black;
     font-size: 25px;
     padding: 5px 5px 5px 5px;
+    cursor: pointer;
 
     animation-name: playAnime;
     animation-duration: 1.75s;

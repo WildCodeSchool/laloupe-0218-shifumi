@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -13,6 +14,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
 import { GameComponent } from './game/game.component';
+
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
 
 
 const appRoutes: Routes = [
@@ -41,7 +45,7 @@ const appRoutes: Routes = [
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

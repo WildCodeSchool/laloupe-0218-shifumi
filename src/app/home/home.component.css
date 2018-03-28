@@ -1,0 +1,23 @@
+.flexPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    font-family: arcade;
+    background-color: black;
+
+    animation-name: playAnime;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes playAnime {
+    0% {background-color: black;}
+    50% {background-color: white;}  
+    100% {background-color: black;}
+
+    0% {border: 1px solid white;}
+    50% {border: 1px solid black;}  
+    100% {border: 1px solid white;}
+}

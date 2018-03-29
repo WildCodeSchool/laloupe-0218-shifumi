@@ -8,7 +8,9 @@ import * as $ from 'jquery';
 })
 export class NavbarComponent implements OnInit {
   title = 'Shifumi';
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() { }
 

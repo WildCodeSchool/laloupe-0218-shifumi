@@ -36,8 +36,6 @@ export class AuthService {
       });
   }
 
-
-
   googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     return this.oAuthLogin(provider);
@@ -49,7 +47,6 @@ export class AuthService {
         this.updateUserData(credential.user);
       });
   }
-
 
   private updateUserData(user) {
     // Sets user data to firestore on login

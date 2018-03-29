@@ -7,13 +7,9 @@ import * as $ from 'jquery';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  title =  "Shifumi";
-  constructor() {
+  title = 'Shifumi';
+  constructor() { }
 
-  }
-
-  ngOnInit() {
-   
-  }
+  ngOnInit() { }
 
 }

@@ -10,10 +10,10 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title =  "Shifumi";
+  title = 'Shifumi';
   items: Observable<any[]>;
-  constructor(db: AngularFirestore){
+  constructor(db: AngularFirestore) {
     this.items = db.collection('items').valueChanges();
   }
-  
+
 }

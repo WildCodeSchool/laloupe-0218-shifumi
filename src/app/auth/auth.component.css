@@ -1,0 +1,36 @@
+button {
+  height: 40px;
+  padding: 6px 10px 6px 10px;
+  font-weight: Bold 13px Arial;
+  background: silver;
+  color: white;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin-left: 20px;
+}
+
+button:hover {
+  background-color: tomato;
+  box-shadow: 1px 1px 1px tomato;
+}
+
+.signOut {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  height: 40px;
+}
+
+.signOut img {
+  height: 40px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 100%;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+}

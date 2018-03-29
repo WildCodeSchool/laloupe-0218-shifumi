@@ -1,16 +1,33 @@
-div {
-  height: 20vw;
+#info {
+  z-index: 1;
+  height: 18vw;
   width: 30vw;
-  background-color: red;
+  background-color: rgb(255, 0, 0);
   position: fixed;
   top: 100px;
   right: 50px;
-  border-radius: 20px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
 }
 
 p {
-  font-size: 3vw;
+  font-size: 2.5vw;
   color: white;
-  font-family: arcade, sans-serif;
+  font-family: game, sans-serif;
   text-align: center;
+  margin-top: 1.5vw;
+}
+
+#triangle {
+  z-index: 0;
+  position: absolute;
+  top: 50px;
+  right: 70px;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-right-width: 29px;
+  border-left-width: 99px;
+  border-bottom: 105px solid rgb(255, 0, 0);
 }

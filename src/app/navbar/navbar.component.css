@@ -6,6 +6,7 @@ h1 {
 .navbar {
   color: white;
   background-color: white !important;
+  box-shadow: 0 0 2px gray;
 }
 
 a {

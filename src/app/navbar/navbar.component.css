@@ -1,17 +1,19 @@
 h1 {
+  margin-top: 10px;
   font-family: arcade, sans-serif;
 }
 
 .navbar {
   color: white;
-  background-color: black !important;
+  background-color: white !important;
+  box-shadow: 0 0 2px gray;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: gray;
 }
 
 a:hover {
-  color: gray;
+  color: black;
 }

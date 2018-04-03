@@ -2,16 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  height: 550px;
+  justify-content: flex-end;
+  height: 580px;
   width: 100%;
+  background-image: url("../../../img/shifumiRobot.png");
+  background-position: center;
+  background-size: cover;
 }
 
-button {
+.playGame {
   font-family: arcade, sans-serif;
   background-color: black;
   height: 50px;
   width: 300px;
+  margin-bottom: 50px;
   border: none;
   box-shadow: 0px 0px 2px black;
   font-size: 25px;
@@ -24,15 +28,15 @@ button {
 
 @keyframes playAnime {
   0% {
-    background-color: black;
+    background-color: gray;
     color: white;
   }
   50% {
     background-color: white;
-    color: black;
+    color: gray;
   }
   100% {
-    background-color: black;
+    background-color: gray;
     color: white;
   }
 }

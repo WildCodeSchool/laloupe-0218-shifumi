@@ -5,3 +5,8 @@
   font-family: arcade;
   src: url("../fonts/perfect-dark-brk/pdark.ttf");
 }
+
+@font-face {
+  font-family: game;
+  src: url("../fonts/metalGearSolid/metag.ttf");
+}

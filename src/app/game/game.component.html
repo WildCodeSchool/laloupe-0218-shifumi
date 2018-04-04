@@ -7,8 +7,8 @@
 
   <app-home></app-home>
   <app-connect></app-connect>
-</ng-template>
 
+</ng-template>
 
 <!-- User logged in -->
 <ng-template #authenticated>
@@ -16,9 +16,13 @@
   </div>
   <!-- ici doit venir le app du jeu -->
   <p>GAME PAGE</p>
-  <ul>
+  <p>
+    {{message}}
+  </p>
+
+  <!-- <ul>
     <li class="text" *ngFor="let item of choice | async">
       {{item.symboles}}
     </li>
-  </ul>
+  </ul> -->
 </ng-template>

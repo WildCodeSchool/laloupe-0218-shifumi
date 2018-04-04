@@ -47,4 +47,3 @@ export class MatchMakingComponent implements OnInit {
     });
   }
 }
-

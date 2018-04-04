@@ -9,10 +9,11 @@ import * as firebase from 'firebase/app';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+
 export class AppComponent {
   title = 'Shifumi';
-  items: Observable<any[]>;
+  choice: Observable<any[]>;
   constructor(db: AngularFirestore) {
-    this.items = db.collection('items').valueChanges();
+    this.choice = db.collection('choice').valueChanges();
   }
 }

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 
 
 @Component({
@@ -9,8 +13,10 @@ import { AuthService } from '../auth.service';
 })
 export class GameComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
-
+  choice: Observable<any[]>;
+  constructor(public auth: AuthService, db: AngularFirestore) {
+    this.choice = db.collection('choice').valueChanges();
+  }
   ngOnInit() {
   }
 

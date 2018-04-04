@@ -16,4 +16,9 @@
   </div>
   <!-- ici doit venir le app du jeu -->
   <p>GAME PAGE</p>
+  <ul>
+    <li class="text" *ngFor="let item of choice | async">
+      {{item.symboles}}
+    </li>
+  </ul>
 </ng-template>

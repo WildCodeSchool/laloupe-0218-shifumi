@@ -18,11 +18,14 @@ import { GameComponent } from './game/game.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { ConnectComponent } from './connect/connect.component';
+import { MatchMakingComponent } from './match-making/match-making.component';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'game', component: GameComponent },
+  { path: 'game/:id/:username', component: GameComponent },
+  { path: 'match-making', component: MatchMakingComponent },
+
   {
     path: '**',
     redirectTo: '/home',
@@ -37,7 +40,8 @@ const appRoutes: Routes = [
     AuthComponent,
     HomeComponent,
     GameComponent,
-    ConnectComponent
+    ConnectComponent,
+    MatchMakingComponent
   ],
   imports: [
     BrowserModule,

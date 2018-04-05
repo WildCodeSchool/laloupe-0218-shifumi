@@ -18,6 +18,8 @@ interface User {
 
 @Injectable()
 export class AuthService {
+  authId: string;
+  name: string;
 
   user: Observable<User>;
 
@@ -34,6 +36,17 @@ export class AuthService {
           return Observable.of(null);
         }
       });
+
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        this.authId = user.uid;
+        this.name = user.displayName;
+      } else {
+        this.authId = null;
+        this.name = null;
+      }
+    });
+
   }
 
   googleLogin() {

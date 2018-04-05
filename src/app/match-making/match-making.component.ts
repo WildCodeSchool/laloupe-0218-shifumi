@@ -1,3 +1,5 @@
+import { AuthComponent } from './../auth/auth.component';
+import { AuthService } from './../auth.service';
 import { Player } from '../models/player';
 import { Room } from '../models/room';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +15,7 @@ import 'rxjs/Rx';
 })
 export class MatchMakingComponent implements OnInit {
 
-  constructor(private db: AngularFirestore, private router: Router) { }
+  constructor(private authService: AuthService, private db: AngularFirestore, private router: Router) { }
 
   ngOnInit() {
     this.getRooms();
@@ -23,7 +25,9 @@ export class MatchMakingComponent implements OnInit {
 
     const snapshot = roomsCollection.snapshotChanges().take(1).subscribe((snapshot) => {
       const player = new Player();
-      player.name = 'user' + Math.floor(Math.random() * 1000);
+      player.name = this.authService.name;
+
+
 
       for (const snapshotItem of snapshot) {
         const roomId = snapshotItem.payload.doc.id;

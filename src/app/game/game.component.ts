@@ -1,10 +1,12 @@
+import { Room } from './../models/room';
+import { MatchMakingComponent } from './../match-making/match-making.component';
+import { Player } from './../models/player';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import { Room } from '../models/room';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -15,7 +17,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GameComponent implements OnInit {
 
-  message = 'Waiting for opponent';
+  message = "Attente d'un joueur";
   roomId: string;
   username: string;
   room: Room;
@@ -26,6 +28,7 @@ export class GameComponent implements OnInit {
   constructor(private route: ActivatedRoute, public auth: AuthService, private db: AngularFirestore) {
     this.choice = db.collection('choice').valueChanges();
     this.rooms = db.collection('rooms').valueChanges();
+
   }
   ngOnInit() {
     this.roomId = this.route.snapshot.paramMap.get('id');
@@ -39,11 +42,40 @@ export class GameComponent implements OnInit {
         this.myPlayerId = room.players[0].name === this.username ? 0 : 1;
         if (room.players.length === 2) {
           this.message = 'Starting game';
-          if (room.players[0].name === this.username) {
-
-          }
         }
       });
+  }
+
+  isMyTurn(): boolean {
+    // console.log(this.room.players[this.room.turn].name, this.username);
+    return this.room && this.room.turn !== undefined && this.room.players[this.room.turn].name == this.username;
+  }
+
+  pierre() {
+    if (this.room.players[0].name === this.username) {
+      this.room.players[0].action.push("pierre");
+      this.room.turn = 1;
+    } else if (this.room.players[1].name === this.username) {
+      this.room.players[1].action.push("pierre");
+      this.room.turn = 0;
+    }
+    this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
+  }
+  feuille() {
+    if (this.room.players[0].name === this.username) {
+      this.room.players[0].action.push("feuille");
+    } else if (this.room.players[1].name === this.username) {
+      this.room.players[1].action.push("feuille");
+    }
+    this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
+  }
+  ciseaux() {
+    if (this.room.players[0].name === this.username) {
+      this.room.players[0].action.push("ciseaux");
+    } else if (this.room.players[1].name === this.username) {
+      this.room.players[1].action.push("ciseaux");
+    }
+    this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
   }
 
 }

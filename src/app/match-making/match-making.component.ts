@@ -20,14 +20,14 @@ export class MatchMakingComponent implements OnInit {
   ngOnInit() {
     this.getRooms();
   }
+
   getRooms() {
     const roomsCollection = this.db.collection<Room>('rooms');
 
     const snapshot = roomsCollection.snapshotChanges().take(1).subscribe((snapshot) => {
       const player = new Player();
       player.name = this.authService.name;
-
-
+      player.action = ["init"];
 
       for (const snapshotItem of snapshot) {
         const roomId = snapshotItem.payload.doc.id;
@@ -42,6 +42,7 @@ export class MatchMakingComponent implements OnInit {
       }
 
       const room = new Room();
+      room.turn = 1;
       room.players = [player];
       this.db.collection('rooms')
         .add(JSON.parse(JSON.stringify(room)))

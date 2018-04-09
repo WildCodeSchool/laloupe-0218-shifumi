@@ -26,9 +26,7 @@ export class GameComponent implements OnInit {
   choice: Observable<any[]>;
   rooms: Observable<any[]>;
   constructor(private route: ActivatedRoute, public auth: AuthService, private db: AngularFirestore) {
-    this.choice = db.collection('choice').valueChanges();
     this.rooms = db.collection('rooms').valueChanges();
-
   }
   ngOnInit() {
     this.roomId = this.route.snapshot.paramMap.get('id');
@@ -51,6 +49,22 @@ export class GameComponent implements OnInit {
     return this.room && this.room.turn !== undefined && this.room.players[this.room.turn].name == this.username;
   }
 
+
+  manche() {
+    if (this.room.count % 2 === 0) {
+      let choiceJone = this.room.players[0].action[this.room.players[0].action.length - 1];
+      let choiceJtwo = this.room.players[1].action[this.room.players[1].action.length - 1];
+      this.match(choiceJone, choiceJtwo);
+    }
+  }
+
+  match(arg1: string, arg2: string) {
+    if (arg1 == "pierre" && arg2 == "pierre") {
+      console.log("match nul");
+    }
+  }
+
+
   pierre() {
     if (this.room.players[0].name === this.username) {
       this.room.players[0].action.push("pierre");
@@ -59,6 +73,8 @@ export class GameComponent implements OnInit {
       this.room.players[1].action.push("pierre");
       this.room.turn = 0;
     }
+    this.room.count = this.room.count + 1;
+    this.manche();
     this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
   }
   feuille() {
@@ -69,6 +85,8 @@ export class GameComponent implements OnInit {
       this.room.players[1].action.push("feuille");
       this.room.turn = 0;
     }
+    this.room.count = this.room.count + 1;
+    this.manche();
     this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
   }
   ciseaux() {
@@ -79,6 +97,8 @@ export class GameComponent implements OnInit {
       this.room.players[1].action.push("ciseaux");
       this.room.turn = 0;
     }
+    this.room.count = this.room.count + 1;
+    this.manche();
     this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
   }
 

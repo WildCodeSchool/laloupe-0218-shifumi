@@ -64,16 +64,20 @@ export class GameComponent implements OnInit {
   feuille() {
     if (this.room.players[0].name === this.username) {
       this.room.players[0].action.push("feuille");
+      this.room.turn = 1;
     } else if (this.room.players[1].name === this.username) {
       this.room.players[1].action.push("feuille");
+      this.room.turn = 0;
     }
     this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
   }
   ciseaux() {
     if (this.room.players[0].name === this.username) {
       this.room.players[0].action.push("ciseaux");
+      this.room.turn = 1;
     } else if (this.room.players[1].name === this.username) {
       this.room.players[1].action.push("ciseaux");
+      this.room.turn = 0;
     }
     this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
   }

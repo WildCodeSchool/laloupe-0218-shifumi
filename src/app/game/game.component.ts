@@ -24,6 +24,10 @@ export class GameComponent implements OnInit {
   room: Room;
   myPlayerId: number;
   myVar;
+  scoreJ1;
+  scoreJ2;
+  player1;
+  player2;
 
   choice: Observable<any[]>;
   rooms: Observable<any[]>;
@@ -42,21 +46,15 @@ export class GameComponent implements OnInit {
         this.myPlayerId = room.players[0].name === this.username ? 0 : 1;
         if (room.players.length === 2) {
           this.message = 'start game';
+          this.player1 = this.room.players[0].name;
+          this.player2 = this.room.players[1].name;
         }
       });
-
-    function versus() {
-      console.log(this.room.players[0] + " versus " + this.room.players[1]);
-    }
-
-    function myFunction() {
-      this.myVar = setInterval(versus(), 5000);
-    }
-
   }
 
-
   isMyTurn(): boolean {
+    this.scoreJ1 = this.room.players[0].roundWin;
+    this.scoreJ2 = this.room.players[1].roundWin;
     // console.log(this.room.players[this.room.turn].name, this.username);
     return this.room && this.room.turn !== undefined && this.room.players[this.room.turn].name == this.username;
   }
@@ -73,18 +71,28 @@ export class GameComponent implements OnInit {
     if (arg1 == arg2) {
       this.room.matchLog.push("match nul");
     } if (arg1 == "pierre" && arg2 == "feuille") {
-      this.room.matchLog.push("Victoire de " + this.room.players[1].name);
+      this.winPlayer2();
     } if (arg1 == "pierre" && arg2 == "ciseaux") {
-      this.room.matchLog.push("Victoire de " + this.room.players[0].name);
+      this.winPlayer1();
     } if (arg1 == "feuille" && arg2 == "pierre") {
-      this.room.matchLog.push("Victoire de " + this.room.players[0].name);
+      this.winPlayer1();
     } if (arg1 == "feuille" && arg2 == "ciseaux") {
-      this.room.matchLog.push("Victoire de " + this.room.players[1].name);
+      this.winPlayer2();
     } if (arg1 == "ciseaux" && arg2 == "pierre") {
-      this.room.matchLog.push("Victoire de " + this.room.players[1].name);
+      this.winPlayer2();
     } if (arg1 == "ciseaux" && arg2 == "feuille") {
-      this.room.matchLog.push("Victoire de " + this.room.players[1].name);
+      this.winPlayer1();
     }
+  }
+
+  winPlayer1() {
+    this.room.matchLog.push("Victoire de " + this.room.players[0].name);
+    this.room.players[0].roundWin = this.room.players[0].roundWin + 1;
+  }
+
+  winPlayer2() {
+    this.room.matchLog.push("Victoire de " + this.room.players[1].name);
+    this.room.players[1].roundWin = this.room.players[1].roundWin + 1;
   }
 
   pierre() {

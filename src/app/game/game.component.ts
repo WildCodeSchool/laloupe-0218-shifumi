@@ -76,6 +76,10 @@ export class GameComponent implements OnInit {
       let choiceJtwo = this.room.players[1].action[this.room.players[1].action.length - 1];
       this.match(choiceJone, choiceJtwo);
     }
+    if ((this.room.players[0].again === 1 && this.room.players[1].again === 1) && (this.room.players[0].roundWin % 3 != 0 && this.room.players[1].roundWin % 3 != 0)) {
+      this.room.players[0].again = 0;
+      this.room.players[1].again = 0;
+    }
   }
 
   match(arg1: string, arg2: string) {

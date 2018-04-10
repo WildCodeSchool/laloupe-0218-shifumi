@@ -52,6 +52,17 @@ export class GameComponent implements OnInit {
       });
   }
 
+  continue() {
+    if (this.room.players[0].name === this.username) {
+      this.room.players[0].again = 1;
+      alert("Demande envoyé");
+    } else if (this.room.players[1].name === this.username) {
+      this.room.players[1].again = 1;
+      alert("Demande envoyé");
+    }
+    this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
+  }
+
   isMyTurn(): boolean {
     this.scoreJ1 = this.room.players[0].roundWin;
     this.scoreJ2 = this.room.players[1].roundWin;
@@ -71,26 +82,26 @@ export class GameComponent implements OnInit {
     if (arg1 == arg2) {
       this.room.matchLog.push("match nul");
     } if (arg1 == "pierre" && arg2 == "feuille") {
-      this.winPlayer2();
+      this.winRoundPlayer2();
     } if (arg1 == "pierre" && arg2 == "ciseaux") {
-      this.winPlayer1();
+      this.winRoundPlayer1();
     } if (arg1 == "feuille" && arg2 == "pierre") {
-      this.winPlayer1();
+      this.winRoundPlayer1();
     } if (arg1 == "feuille" && arg2 == "ciseaux") {
-      this.winPlayer2();
+      this.winRoundPlayer2();
     } if (arg1 == "ciseaux" && arg2 == "pierre") {
-      this.winPlayer2();
+      this.winRoundPlayer2();
     } if (arg1 == "ciseaux" && arg2 == "feuille") {
-      this.winPlayer1();
+      this.winRoundPlayer1();
     }
   }
 
-  winPlayer1() {
+  winRoundPlayer1() {
     this.room.matchLog.push("Victoire de " + this.room.players[0].name);
     this.room.players[0].roundWin = this.room.players[0].roundWin + 1;
   }
 
-  winPlayer2() {
+  winRoundPlayer2() {
     this.room.matchLog.push("Victoire de " + this.room.players[1].name);
     this.room.players[1].roundWin = this.room.players[1].roundWin + 1;
   }

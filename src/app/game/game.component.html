@@ -43,4 +43,11 @@
   <p> {{player1}} he won {{scoreJ1}} rounds
     <br> {{player2}} he won {{scoreJ2}} rounds</p>
 
+  <div class="gameOver" *ngIf="((this.room.players[0].roundWin % 3 === 0 && this.room.players[0].roundWin != 0) || (this.room.players[1].roundWin % 3 === 0 && this.room.players[1].roundWin != 0)) && (this.room.players[0].again === 0 || this.room.players[1].again === 0)">
+
+    <h1>GAME OVER</h1>
+    <button type="button" routerLink="/">Exit</button>
+    <button type="button" (click)="continue()">Continue</button>
+  </div>
+
 </ng-template>

@@ -23,7 +23,6 @@ export class GameComponent implements OnInit {
   username: string;
   room: Room;
   myPlayerId: number;
-  infoMatch = [];
   myVar;
 
   choice: Observable<any[]>;
@@ -51,14 +50,13 @@ export class GameComponent implements OnInit {
     }
 
     function myFunction() {
-      this.myVar = setInterval(versus, 5000);
+      this.myVar = setInterval(versus(), 5000);
     }
 
   }
 
 
   isMyTurn(): boolean {
-    this.infoMatch = this.room.matchLog;
     // console.log(this.room.players[this.room.turn].name, this.username);
     return this.room && this.room.turn !== undefined && this.room.players[this.room.turn].name == this.username;
   }
@@ -69,7 +67,6 @@ export class GameComponent implements OnInit {
       let choiceJtwo = this.room.players[1].action[this.room.players[1].action.length - 1];
       this.match(choiceJone, choiceJtwo);
     }
-    this.infoMatch = this.room.matchLog;
   }
 
   match(arg1: string, arg2: string) {

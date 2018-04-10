@@ -28,6 +28,8 @@ export class GameComponent implements OnInit {
   scoreJ2;
   player1;
   player2;
+  victoryPlayer1;
+  victoryPlayer2;
 
   choice: Observable<any[]>;
   rooms: Observable<any[]>;
@@ -52,6 +54,15 @@ export class GameComponent implements OnInit {
       });
   }
 
+  victory() {
+    if (this.room.players[0].roundWin % 3 === 0) {
+      this.room.players[0].victory = this.room.players[0].victory + 1;
+    } else if (this.room.players[1].roundWin % 3 === 0) {
+      this.room.players[1].victory = this.room.players[1].victory + 1;
+    }
+    this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
+  }
+
   continue() {
     if (this.room.players[0].name === this.username) {
       this.room.players[0].again = 1;
@@ -64,6 +75,8 @@ export class GameComponent implements OnInit {
   }
 
   isMyTurn(): boolean {
+    this.victoryPlayer1 = this.room.players[0].victory;
+    this.victoryPlayer2 = this.room.players[1].victory;
     this.scoreJ1 = this.room.players[0].roundWin;
     this.scoreJ2 = this.room.players[1].roundWin;
     // console.log(this.room.players[this.room.turn].name, this.username);

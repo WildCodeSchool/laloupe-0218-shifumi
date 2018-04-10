@@ -3,4 +3,5 @@ export class Player {
     action: string[];
     roundWin: number;
     again: number;
+    victory: number;
 }

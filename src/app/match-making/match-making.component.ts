@@ -30,6 +30,7 @@ export class MatchMakingComponent implements OnInit {
       player.action = ["init action"];
       player.roundWin = 0;
       player.again = 0;
+      player.victory = 0;
 
       for (const snapshotItem of snapshot) {
         const roomId = snapshotItem.payload.doc.id;

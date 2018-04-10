@@ -3,8 +3,8 @@
 .gameOver {
   z-index: 10;
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 40%;
+  left: 35%;
 }
 
 .content {

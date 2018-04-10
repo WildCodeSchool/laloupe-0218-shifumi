@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Room } from './../models/room';
 import { MatchMakingComponent } from './../match-making/match-making.component';
 import { Player } from './../models/player';
@@ -17,11 +18,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GameComponent implements OnInit {
 
-  message = "Attente d'un joueur";
+  message = "wait please ! a player will arrive";
   roomId: string;
   username: string;
   room: Room;
   myPlayerId: number;
+  infoMatch = [];
+  myVar;
 
   choice: Observable<any[]>;
   rooms: Observable<any[]>;
@@ -39,16 +42,26 @@ export class GameComponent implements OnInit {
         this.room = room;
         this.myPlayerId = room.players[0].name === this.username ? 0 : 1;
         if (room.players.length === 2) {
-          this.message = 'Starting game';
+          this.message = 'start game';
         }
       });
+
+    function versus() {
+      console.log(this.room.players[0] + " versus " + this.room.players[1]);
+    }
+
+    function myFunction() {
+      this.myVar = setInterval(versus, 5000);
+    }
+
   }
 
+
   isMyTurn(): boolean {
+    this.infoMatch = this.room.matchLog;
     // console.log(this.room.players[this.room.turn].name, this.username);
     return this.room && this.room.turn !== undefined && this.room.players[this.room.turn].name == this.username;
   }
-
 
   manche() {
     if (this.room.count % 2 === 0) {
@@ -56,14 +69,26 @@ export class GameComponent implements OnInit {
       let choiceJtwo = this.room.players[1].action[this.room.players[1].action.length - 1];
       this.match(choiceJone, choiceJtwo);
     }
+    this.infoMatch = this.room.matchLog;
   }
 
   match(arg1: string, arg2: string) {
-    if (arg1 == "pierre" && arg2 == "pierre") {
-      console.log("match nul");
+    if (arg1 == arg2) {
+      this.room.matchLog.push("match nul");
+    } if (arg1 == "pierre" && arg2 == "feuille") {
+      this.room.matchLog.push("Victoire de " + this.room.players[1].name);
+    } if (arg1 == "pierre" && arg2 == "ciseaux") {
+      this.room.matchLog.push("Victoire de " + this.room.players[0].name);
+    } if (arg1 == "feuille" && arg2 == "pierre") {
+      this.room.matchLog.push("Victoire de " + this.room.players[0].name);
+    } if (arg1 == "feuille" && arg2 == "ciseaux") {
+      this.room.matchLog.push("Victoire de " + this.room.players[1].name);
+    } if (arg1 == "ciseaux" && arg2 == "pierre") {
+      this.room.matchLog.push("Victoire de " + this.room.players[1].name);
+    } if (arg1 == "ciseaux" && arg2 == "feuille") {
+      this.room.matchLog.push("Victoire de " + this.room.players[1].name);
     }
   }
-
 
   pierre() {
     if (this.room.players[0].name === this.username) {

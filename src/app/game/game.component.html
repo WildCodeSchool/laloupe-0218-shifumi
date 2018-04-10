@@ -14,11 +14,11 @@
 <ng-template #authenticated>
   <div *ngIf="auth.user | async as user">
 
-
   </div>
 
   <div *ngIf="room && room.players.length > 1">
     game ready
+
 
     <div *ngIf="isMyTurn(); else elseBlock">
       c'est mon tour
@@ -30,12 +30,14 @@
       c'est pas ton tour
     </ng-template>
 
-
   </div>
 
   <p>GAME PAGE</p>
+
   <p>
     {{message}}
   </p>
+
+  <div *ngFor="let item of infoMatch">{{item}}</div>
 
 </ng-template>

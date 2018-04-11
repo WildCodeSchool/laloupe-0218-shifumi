@@ -34,25 +34,26 @@
             </div>
           </ng-template>
 
-        </div>
+          <div style='width: 30%;'>
+            <p> {{player1}} he won {{scoreJ1}} rounds and {{victoryPlayer1}} victory</p>
+            <p> {{player2}} he won {{scoreJ2}} rounds and {{victoryPlayer2}} victory</p>
+          </div>
 
+          <div class='history' id="history">
+            <div style='width: 100%;'>
+              <div *ngFor='let item of this.room.matchLog'>{{item}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="matchMaking">
         <p>
           {{message}}
         </p>
-
       </div>
 
-      <div style='width: 30%;'>
-        <p> {{player1}} he won {{scoreJ1}} rounds and {{victoryPlayer1}} victory</p>
-        <p> {{player2}} he won {{scoreJ2}} rounds and {{victoryPlayer2}} victory</p>
-      </div>
 
-      <div class='history' id="history">
-        <div style='width: 100%;'>
-          <div *ngFor='let item of this.room.matchLog'>{{item}}</div>
-        </div>
-
-      </div>
     </div>
 
     <div class='gameOver' *ngIf='room.roundWon'>

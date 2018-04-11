@@ -5,16 +5,16 @@ h1 {
 
 .navbar {
   color: white;
-  background-color: white !important;
-  box-shadow: 0 0 2px gray;
+  background-color: black !important;
+  box-shadow: 0 0 2px black;
   height: 10vh;
 }
 
 a {
   text-decoration: none;
-  color: gray;
+  color: white;
 }
 
 a:hover {
-  color: black;
+  color: silver;
 }

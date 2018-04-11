@@ -2,24 +2,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  height: 580px;
+  justify-content: space-around;
+  height: 90vh;
   width: 100%;
-  background-image: url("../../../img/shifumiRobot.png");
+  background-image: url("../../../img/batfond.png");
   background-position: center;
   background-size: cover;
 }
 
 .playGame {
   font-family: arcade, sans-serif;
-  background-color: black;
-  height: 50px;
-  width: 300px;
-  margin-bottom: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("../../../img/batmanLogo.png");
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+  width: 500px;
   border: none;
-  box-shadow: 0px 0px 2px black;
-  font-size: 25px;
-  padding: 5px 5px 5px 5px;
+  font-size: 20px;
+  padding: 5px 5px 50px 5px;
   cursor: pointer;
   animation-name: playAnime;
   animation-duration: 1.75s;
@@ -28,15 +29,40 @@
 
 @keyframes playAnime {
   0% {
-    background-color: gray;
-    color: white;
+    background-image: url("../../../img/batmanLogoWhite.png");
+    font-family: batmfa, sans-serif;
+    color: black;
   }
-  50% {
-    background-color: white;
-    color: gray;
+  80% {
+    background-image: url("../../../img/batmanLogo.png");
+    color: white;
   }
   100% {
-    background-color: gray;
-    color: white;
+    background-image: url("../../../img/batmanLogoWhite.png");
+    font-family: batmfa, sans-serif;
+    color: black;
   }
+}
+
+.ruleBtn {
+  width: 100px;
+  height: 50px;
+  background-color: black;
+  border: none;
+  box-shadow: 0 0 2px white;
+  color: white;
+  font-family: batmfa, sans-serif;
+}
+
+.ruleBtn:hover {
+  font-family: batmfa, sans-serif;
+  color: black;
+  background-color: white;
+}
+
+.rules {
+  font-family: batmfa, sans-serif;
+  font-size: 18px;
+  color: white;
+  text-align: center;
 }

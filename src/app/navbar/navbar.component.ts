@@ -7,7 +7,7 @@ import * as $ from 'jquery';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  title = 'Shifumi';
+  title = 'Bat Shifumi';
   constructor() {
 
   }

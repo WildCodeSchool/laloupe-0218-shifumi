@@ -25,8 +25,8 @@ export class AuthService {
   user: Observable<User>;
 
   constructor(private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
-    private router: Router) {
+              private afs: AngularFirestore,
+              private router: Router) {
 
 
     //// Get auth data, then get firestore user document || null
@@ -72,7 +72,7 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL
+      photoURL: user.photoURL,
     };
 
     return userRef.set(data, { merge: true });

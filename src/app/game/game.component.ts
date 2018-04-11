@@ -15,11 +15,11 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css']
+  styleUrls: ['./game.component.css'],
 })
 export class GameComponent implements OnInit, OnDestroy {
 
-  message = "wait please ! a player will arrive";
+  message = 'wait please ! a player will arrive';
   roomId: string;
   username: string;
   room: Room;
@@ -35,7 +35,8 @@ export class GameComponent implements OnInit, OnDestroy {
   choice: Observable<any[]>;
   rooms: Observable<any[]>;
   sub: Subscription;
-  constructor(private route: ActivatedRoute, public auth: AuthService, private db: AngularFirestore) {
+  constructor(
+    private route: ActivatedRoute, public auth: AuthService, private db: AngularFirestore) {
     this.rooms = db.collection('rooms').valueChanges();
   }
   ngOnInit() {
@@ -86,52 +87,54 @@ export class GameComponent implements OnInit, OnDestroy {
     this.scoreJ1 = this.room.players[0].roundWin;
     this.scoreJ2 = this.room.players[1].roundWin;
     // console.log(this.room.players[this.room.turn].name, this.username);
-    return this.room && this.room.turn !== undefined && this.room.players[this.room.turn].name == this.username;
+    return this.room && 
+    this.room.turn !== undefined && 
+    this.room.players[this.room.turn].name === this.username;
   }
 
   manche() {
     if (this.room.count % 2 === 0) {
-      let choiceJone = this.room.players[0].action[this.room.players[0].action.length - 1];
-      let choiceJtwo = this.room.players[1].action[this.room.players[1].action.length - 1];
+      const choiceJone = this.room.players[0].action[this.room.players[0].action.length - 1];
+      const choiceJtwo = this.room.players[1].action[this.room.players[1].action.length - 1];
       this.match(choiceJone, choiceJtwo);
     }
     this.victory();
   }
 
   match(arg1: string, arg2: string) {
-    if (arg1 == arg2) {
-      this.room.matchLog.push("match nul");
-    } if (arg1 == "pierre" && arg2 == "feuille") {
+    if (arg1 === arg2) {
+      this.room.matchLog.push('match nul');
+    } if (arg1 === 'pierre' && arg2 === 'feuille') {
       this.winRoundPlayer2();
-    } if (arg1 == "pierre" && arg2 == "ciseaux") {
+    } if (arg1 === 'pierre' && arg2 === 'ciseaux') {
       this.winRoundPlayer1();
-    } if (arg1 == "feuille" && arg2 == "pierre") {
+    } if (arg1 === 'feuille' && arg2 === 'pierre') {
       this.winRoundPlayer1();
-    } if (arg1 == "feuille" && arg2 == "ciseaux") {
+    } if (arg1 === 'feuille' && arg2 === 'ciseaux') {
       this.winRoundPlayer2();
-    } if (arg1 == "ciseaux" && arg2 == "pierre") {
+    } if (arg1 === 'ciseaux' && arg2 === 'pierre') {
       this.winRoundPlayer2();
-    } if (arg1 == "ciseaux" && arg2 == "feuille") {
+    } if (arg1 === 'ciseaux' && arg2 === 'feuille') {
       this.winRoundPlayer1();
     }
   }
 
   winRoundPlayer1() {
-    this.room.matchLog.push("Victoire de " + this.room.players[0].name);
+    this.room.matchLog.push('Victoire de ' + this.room.players[0].name);
     this.room.players[0].roundWin += 1;
   }
 
   winRoundPlayer2() {
-    this.room.matchLog.push("Victoire de " + this.room.players[1].name);
+    this.room.matchLog.push('Victoire de ' + this.room.players[1].name);
     this.room.players[1].roundWin += 1;
   }
 
   pierre() {
     if (this.room.players[0].name === this.username) {
-      this.room.players[0].action.push("pierre");
+      this.room.players[0].action.push('pierre');
       this.room.turn = 1;
     } else if (this.room.players[1].name === this.username) {
-      this.room.players[1].action.push("pierre");
+      this.room.players[1].action.push('pierre');
       this.room.turn = 0;
     }
     this.room.count = this.room.count + 1;
@@ -140,10 +143,10 @@ export class GameComponent implements OnInit, OnDestroy {
   }
   feuille() {
     if (this.room.players[0].name === this.username) {
-      this.room.players[0].action.push("feuille");
+      this.room.players[0].action.push('feuille');
       this.room.turn = 1;
     } else if (this.room.players[1].name === this.username) {
-      this.room.players[1].action.push("feuille");
+      this.room.players[1].action.push('feuille');
       this.room.turn = 0;
     }
     this.room.count = this.room.count + 1;
@@ -152,10 +155,10 @@ export class GameComponent implements OnInit, OnDestroy {
   }
   ciseaux() {
     if (this.room.players[0].name === this.username) {
-      this.room.players[0].action.push("ciseaux");
+      this.room.players[0].action.push('ciseaux');
       this.room.turn = 1;
     } else if (this.room.players[1].name === this.username) {
-      this.room.players[1].action.push("ciseaux");
+      this.room.players[1].action.push('ciseaux');
       this.room.turn = 0;
     }
     this.room.count = this.room.count + 1;

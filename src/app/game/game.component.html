@@ -12,7 +12,7 @@
 
 <!-- User logged in -->
 <ng-template #authenticated>
-  <div *ngIf="room">
+  <div *ngIf='room'>
     <div class='interface'>
       <div class='game'>
         <div *ngIf='room && room.players.length > 1'>
@@ -52,10 +52,10 @@
       </div>
     </div>
 
-    <div class="gameOver" *ngIf="room.roundWon">
+    <div class='gameOver' *ngIf='room.roundWon'>
       <h1>GAME OVER</h1>
-      <button type="button" routerLink="/">Exit</button>
-      <button type="button" (click)="continue()">Continue</button>
+      <button type='button' routerLink='/'>Exit</button>
+      <button type='button' (click)='continue()'>Continue</button>
     </div>
   </div>
 

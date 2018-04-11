@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class="matchMaking">
+      <div class="matchMaking" *ngIf="room && room.players.length == 1">
         <p>
           {{message}}
         </p>

@@ -5,4 +5,5 @@ export class Room {
     turn: number;
     count: number;
     matchLog: string[];
+    roundWon: boolean = false;
 }

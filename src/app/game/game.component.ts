@@ -55,6 +55,12 @@ export class GameComponent implements OnInit, OnDestroy {
           this.player2 = this.room.players[1].name;
         }
       });
+
+    window.setInterval(function () {
+      var elem = document.getElementById('history');
+      elem.scrollTop = elem.scrollHeight;
+    }, 2000);
+
   }
 
   ngOnDestroy() {
@@ -87,9 +93,9 @@ export class GameComponent implements OnInit, OnDestroy {
     this.scoreJ1 = this.room.players[0].roundWin;
     this.scoreJ2 = this.room.players[1].roundWin;
     // console.log(this.room.players[this.room.turn].name, this.username);
-    return this.room && 
-    this.room.turn !== undefined && 
-    this.room.players[this.room.turn].name === this.username;
+    return this.room &&
+      this.room.turn !== undefined &&
+      this.room.players[this.room.turn].name === this.username;
   }
 
   manche() {

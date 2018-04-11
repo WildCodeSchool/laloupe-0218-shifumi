@@ -14,11 +14,13 @@
 <ng-template #authenticated>
   <div *ngIf='room'>
     <div class='interface'>
+
       <div class='game'>
         <div *ngIf='room && room.players.length > 1'>
 
           <div *ngIf='isMyTurn(); else elseBlock'>
             <p>c'est ton tour</p>
+
             <div class='content'>
               <button type='button' (click)='pierre()'>Pierre</button>
               <button type='button' (click)='feuille()'>Feuille</button>
@@ -27,7 +29,9 @@
           </div>
 
           <ng-template #elseBlock>
-            <p>c'est pas ton tour</p>
+            <div class="wait">
+              <p class="textWait">please wait ! Joker is attacking you</p>
+            </div>
           </ng-template>
 
         </div>
@@ -38,15 +42,14 @@
 
       </div>
 
-      <div class='history'>
+      <div style='width: 30%;'>
+        <p> {{player1}} he won {{scoreJ1}} rounds and {{victoryPlayer1}} victory</p>
+        <p> {{player2}} he won {{scoreJ2}} rounds and {{victoryPlayer2}} victory</p>
+      </div>
 
+      <div class='history' id="history">
         <div style='width: 100%;'>
           <div *ngFor='let item of this.room.matchLog'>{{item}}</div>
-        </div>
-
-        <div style='width: 100%;'>
-          <p> {{player1}} he won {{scoreJ1}} rounds and {{victoryPlayer1}} victory</p>
-          <p> {{player2}} he won {{scoreJ2}} rounds and {{victoryPlayer2}} victory</p>
         </div>
 
       </div>

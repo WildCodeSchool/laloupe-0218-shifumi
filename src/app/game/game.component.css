@@ -8,6 +8,9 @@
 }
 
 .content {
+  position: absolute;
+  width: 100%;
+  top: 80vh;
   display: flex;
   justify-content: space-around;
 }
@@ -15,6 +18,11 @@
 .interface {
   display: flex;
   align-items: stretch;
+  background-image: url("../../../img/gifBattle.gif");
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  width: 100%;
 }
 
 .game {
@@ -22,13 +30,58 @@
 }
 
 .history {
-  flex-grow: 1;
-  border-left: 1px solid #000;
-  text-indent: 10px;
-  height: 90vh;
-  width: 20vw;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  position: absolute;
+  top: 10vh;
+  left: 35vw;
+  height: 20vh;
+  width: 30vw;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.wait {
+  background-image: url("../../../img/joker.gif");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  top: 50vh;
   display: flex;
-  flex-wrap: wrap;
-  align-content: space-between;
-  overflow: scroll;
+  justify-content: center;
+  align-items: top;
+}
+
+.textWait {
+  display: block;
+  height: 50px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-family: batmfa, sans-serif;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: none;
+  border-radius: 10px;
+  border: 1px solid silver;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  border: 1px solid gray;
 }

@@ -11,11 +11,12 @@ import 'rxjs/Rx';
 @Component({
   selector: 'app-match-making',
   templateUrl: './match-making.component.html',
-  styleUrls: ['./match-making.component.css']
+  styleUrls: ['./match-making.component.css'],
 })
 export class MatchMakingComponent implements OnInit {
 
-  constructor(private authService: AuthService, private db: AngularFirestore, private router: Router) { }
+  constructor(
+    private authService: AuthService, private db: AngularFirestore, private router: Router) { }
 
   ngOnInit() {
     this.getRooms();
@@ -27,7 +28,7 @@ export class MatchMakingComponent implements OnInit {
     const snapshot = roomsCollection.snapshotChanges().take(1).subscribe((snapshot) => {
       const player = new Player();
       player.name = this.authService.name;
-      player.action = ["init action"];
+      player.action = ['init action'];
       player.roundWin = 0;
       player.victory = 0;
 
@@ -46,7 +47,7 @@ export class MatchMakingComponent implements OnInit {
       const room = new Room();
       room.turn = 1;
       room.count = 0;
-      room.matchLog = ["Game history : "];
+      room.matchLog = ['Game history : '];
       room.players = [player];
       this.db.collection('rooms')
         .add(JSON.parse(JSON.stringify(room)))

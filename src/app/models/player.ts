@@ -1,6 +1,6 @@
 export class Player {
-    name: string;
-    action: string[];
-    roundWin: number;
-    victory: number;
+  name: string;
+  action: string[];
+  roundWin: number;
+  victory: number;
 }

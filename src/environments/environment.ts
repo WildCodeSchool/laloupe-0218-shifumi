@@ -11,6 +11,6 @@ export const environment = {
     databaseURL: 'https://shifumi-2161d.firebaseio.com',
     projectId: 'shifumi-2161d',
     storageBucket: 'shifumi-2161d.appspot.com',
-    messagingSenderId: '105028647988'
-  }
+    messagingSenderId: '105028647988',
+  },
 };

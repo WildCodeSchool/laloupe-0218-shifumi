@@ -30,7 +30,7 @@ const appRoutes: Routes = [
     path: '**',
     redirectTo: '/home',
     pathMatch: 'full',
-  }
+  },
 ];
 
 @NgModule({
@@ -41,7 +41,7 @@ const appRoutes: Routes = [
     HomeComponent,
     GameComponent,
     ConnectComponent,
-    MatchMakingComponent
+    MatchMakingComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +49,9 @@ const appRoutes: Routes = [
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [AuthGuard, AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

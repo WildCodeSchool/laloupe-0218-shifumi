@@ -1,8 +1,16 @@
 <div class="flexPage">
-<h1>Welcome to Shifumi online</h1>
+  <div ng-init='rulesClic' *ngIf='rulesClic == 1; then azerty else qwerty'></div>
 
-<iframe width="604px" height="354px" src="http://via.placeholder.com/600x350"></iframe>
+  <ng-template #qwerty>
+    <button class="ruleBtn" type="button" (click)='rulesClic = 1'>Rules</button>
+  </ng-template>
 
-<button routerLink="/game">play the game</button>
+  <ng-template #azerty>
+    <button class="ruleBtn" type="button" (click)='rulesClic = 0'>Close</button>
+    <p class="rules">The BAT paper beats the BAT stone
+      <br> The BAT stone beats the BAT scissors
+      <br> The BAT scissors beats the BAT paper</p>
+  </ng-template>
 
+  <button class="playGame" routerLink="/match-making">play the Bat game</button>
 </div>

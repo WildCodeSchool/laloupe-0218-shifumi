@@ -3,7 +3,7 @@ button {
   padding: 6px 10px 6px 10px;
   font-weight: Bold 13px Arial;
   background: silver;
-  color: white;
+  color: black;
   border-radius: 2px;
   border: none;
   cursor: pointer;
@@ -33,4 +33,5 @@ button:hover {
 h4 {
   font-size: 20px;
   font-weight: bold;
+  color: gray;
 }

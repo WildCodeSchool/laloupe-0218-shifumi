@@ -1,19 +1,62 @@
-<div *ngIf="auth.user | async; then authenticated else guest">
+<div *ngIf='auth.user | async; then authenticated else guest'>
   <!-- template will replace this div -->
 </div>
 
 <!-- User NOT logged in -->
 <ng-template #guest>
 
-  <p>Login to get started...</p>
+  <app-home></app-home>
   <app-connect></app-connect>
-</ng-template>
 
+</ng-template>
 
 <!-- User logged in -->
 <ng-template #authenticated>
-<div *ngIf="auth.user | async as user">
-</div>
-<!-- ici doit venir le app du jeu -->
-<p>GAME PAGE</p>
+  <div *ngIf='room'>
+    <div class='interface'>
+      <div class='game'>
+        <div *ngIf='room && room.players.length > 1'>
+
+          <div *ngIf='isMyTurn(); else elseBlock'>
+            <p>c'est ton tour</p>
+            <div class='content'>
+              <button type='button' (click)='pierre()'>Pierre</button>
+              <button type='button' (click)='feuille()'>Feuille</button>
+              <button type='button' (click)='ciseaux()'>Ciseaux</button>
+            </div>
+          </div>
+
+          <ng-template #elseBlock>
+            <p>c'est pas ton tour</p>
+          </ng-template>
+
+        </div>
+
+        <p>
+          {{message}}
+        </p>
+
+      </div>
+
+      <div class='history'>
+
+        <div style='width: 100%;'>
+          <div *ngFor='let item of this.room.matchLog'>{{item}}</div>
+        </div>
+
+        <div style='width: 100%;'>
+          <p> {{player1}} he won {{scoreJ1}} rounds and {{victoryPlayer1}} victory</p>
+          <p> {{player2}} he won {{scoreJ2}} rounds and {{victoryPlayer2}} victory</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class='gameOver' *ngIf='room.roundWon'>
+      <h1>GAME OVER</h1>
+      <button type='button' routerLink='/'>Exit</button>
+      <button type='button' (click)='continue()'>Continue</button>
+    </div>
+  </div>
+
 </ng-template>

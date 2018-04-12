@@ -1,10 +1,13 @@
 h1 {
+  margin-top: 10px;
   font-family: arcade, sans-serif;
 }
 
 .navbar {
   color: white;
   background-color: black !important;
+  box-shadow: 0 0 2px black;
+  height: 10vh;
 }
 
 a {
@@ -13,5 +16,5 @@ a {
 }
 
 a:hover {
-  color: gray;
+  color: silver;
 }

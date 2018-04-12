@@ -18,22 +18,37 @@ interface User {
 
 @Injectable()
 export class AuthService {
+  authId: string;
+  auth;
+  name: string;
 
   user: Observable<User>;
 
   constructor(private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
-    private router: Router) {
+              private afs: AngularFirestore,
+              private router: Router) {
+
 
     //// Get auth data, then get firestore user document || null
-    this.user = this.afAuth.authState
-      .switchMap(user => {
-        if (user) {
-          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-        } else {
-          return Observable.of(null);
-        }
-      });
+    this.user = this.afAuth.authState;
+    //   .switchMap(user => {
+    //     if (user) {
+    //       return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+    //     } else {
+    //       return Observable.of(null);
+    //     }
+    //   });
+
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        this.authId = user.uid;
+        this.name = user.displayName;
+      } else {
+        this.authId = null;
+        this.name = null;
+      }
+    });
+
   }
 
   googleLogin() {
@@ -57,7 +72,7 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL
+      photoURL: user.photoURL,
     };
 
     return userRef.set(data, { merge: true });

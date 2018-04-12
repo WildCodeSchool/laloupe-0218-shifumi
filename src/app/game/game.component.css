@@ -1,1 +1,34 @@
 /*rien*/
+
+.gameOver {
+  z-index: 10;
+  position: fixed;
+  top: 40%;
+  left: 35%;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.interface {
+  display: flex;
+  align-items: stretch;
+}
+
+.game {
+  flex-grow: 10;
+}
+
+.history {
+  flex-grow: 1;
+  border-left: 1px solid #000;
+  text-indent: 10px;
+  height: 90vh;
+  width: 20vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  overflow: scroll;
+}

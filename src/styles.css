@@ -3,5 +3,15 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @font-face {
   font-family: arcade;
-  src: url("../fonts/perfect-dark-brk/pdark.ttf");
+  src: url("../fonts/batmfo.ttf");
+}
+
+@font-face {
+  font-family: game;
+  src: url("../fonts/metalGearSolid/metag.ttf");
+}
+
+@font-face {
+  font-family: batmfa;
+  src: url("../fonts/batmfa.ttf");
 }

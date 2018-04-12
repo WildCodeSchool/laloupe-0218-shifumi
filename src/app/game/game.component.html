@@ -19,7 +19,10 @@
         <div *ngIf='room && room.players.length > 1'>
 
           <div *ngIf='isMyTurn(); else elseBlock'>
-            <p>c'est ton tour</p>
+
+            <div id="yourTurn">
+              <p>choose your weapon to attack Joker</p>
+            </div>
 
             <div class='content'>
               <button class="btnAttack" id="btnPaper" type='button' (click)='feuille()'></button>
@@ -34,9 +37,20 @@
             </div>
           </ng-template>
 
-          <div style='width: 30%;'>
-            <p> {{player1}} he won {{scoreJ1}} rounds and {{victoryPlayer1}} victory</p>
-            <p> {{player2}} he won {{scoreJ2}} rounds and {{victoryPlayer2}} victory</p>
+          <div class="infosPlayers" id="infosPlayers1">
+            <p> {{player1}} </p>
+            <div>
+              <div>{{scoreJ1}} rounds</div>
+              <div>{{victoryPlayer1}}</div>
+            </div>
+          </div>
+
+          <div class="infosPlayers" id="infosPlayers2">
+            <p> {{player2}} </p>
+            <div>
+              <div>{{scoreJ2}} rounds</div>
+              <div>{{victoryPlayer2}}</div>
+            </div>
           </div>
 
           <div class='history' id="history">

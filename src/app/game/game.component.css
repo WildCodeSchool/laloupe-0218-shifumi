@@ -137,3 +137,20 @@
   width: 300px;
   cursor: pointer;
 }
+
+#yourTurn {
+  position: fixed;
+  z-index: 2;
+  top: 50vh;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-family: arcade, sans-serif;
+  color: white;
+  font-weight: bold;
+}
+
+.infosPlayers {
+  width: 30%;
+}

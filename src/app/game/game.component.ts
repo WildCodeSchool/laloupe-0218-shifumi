@@ -59,7 +59,7 @@ export class GameComponent implements OnInit, OnDestroy {
       const elem = document.getElementById('history');
       elem.scrollTop = elem.scrollHeight;
     }
-    window.setInterval(interv, 2000);
+    setInterval(interv, 2000);
   }
 
   ngOnDestroy() {

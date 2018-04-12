@@ -46,7 +46,7 @@
   position: absolute;
   top: 10vh;
   left: 30vw;
-  height: 20vh;
+  height: 25vh;
   width: 40vw;
   overflow-x: hidden;
   overflow-y: visible;
@@ -60,7 +60,7 @@
   position: fixed;
   top: 10vh;
   left: 30vw;
-  height: 13vh;
+  height: 18vh;
   width: 39vw;
 }
 
@@ -194,7 +194,7 @@
   text-align: center;
   font-size: 30px;
   font-family: arcade, sans-serif;
-  color: white;
+  color: gold;
   font-weight: bold;
 }
 

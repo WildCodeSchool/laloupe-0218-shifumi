@@ -50,7 +50,7 @@ export class GameComponent implements OnInit, OnDestroy {
         this.room = room;
         this.myPlayerId = room.players[0].name === this.username ? 0 : 1;
         if (room.players.length === 2) {
-          this.message = 'start game';
+          this.message = '';
           this.player1 = this.room.players[0].name;
           this.player2 = this.room.players[1].name;
         }
@@ -92,7 +92,7 @@ export class GameComponent implements OnInit, OnDestroy {
     this.victoryPlayer2 = this.room.players[1].victory;
     this.scoreJ1 = this.room.players[0].roundWin;
     this.scoreJ2 = this.room.players[1].roundWin;
-    // console.log(this.room.players[this.room.turn].name, this.username);
+
     return this.room &&
       this.room.turn !== undefined &&
       this.room.players[this.room.turn].name === this.username;

@@ -9,9 +9,8 @@ export class HomeComponent implements OnInit {
   rulesClic: number;
 
   constructor() {
-    this.rulesClic = 0;    
-   }
-
+    this.rulesClic = 0;
+  }
   ngOnInit() {
   }
 

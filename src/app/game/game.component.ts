@@ -55,11 +55,11 @@ export class GameComponent implements OnInit, OnDestroy {
           this.player2 = this.room.players[1].name;
         }
       });
-
-    window.setInterval(function () {
-      var elem = document.getElementById('history');
+    function interv() {
+      const elem = document.getElementById('history');
       elem.scrollTop = elem.scrollHeight;
-    }, 2000);
+    }
+    window.setInterval(interv, 2000);
   }
 
   ngOnDestroy() {

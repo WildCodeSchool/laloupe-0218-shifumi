@@ -37,19 +37,25 @@
             </div>
           </ng-template>
 
-          <div class="infosPlayers" id="infosPlayers1">
-            <p> {{player1}} </p>
-            <div>
-              <div>{{scoreJ1}} rounds</div>
-              <div>{{victoryPlayer1}}</div>
+          <div class="infosPlayers" id="infoPlayer1">
+            <p class="namePlayers"> {{player1}} </p>
+            <div class="scorePlayers">
+              <div class="blason">
+                <p>rounds</p>
+                <p>{{scoreJ1}}</p>
+              </div>
+              <div class="trophy">{{victoryPlayer1}}</div>
             </div>
           </div>
 
-          <div class="infosPlayers" id="infosPlayers2">
-            <p> {{player2}} </p>
-            <div>
-              <div>{{scoreJ2}} rounds</div>
-              <div>{{victoryPlayer2}}</div>
+          <div class="infosPlayers" id="infoPlayer2">
+            <p class="namePlayers"> {{player2}} </p>
+            <div class="scorePlayers">
+              <div class="trophy">{{victoryPlayer2}}</div>
+              <div class="blason">
+                <p>rounds</p>
+                <p>{{scoreJ2}}</p>
+              </div>
             </div>
           </div>
 
@@ -69,13 +75,14 @@
         </p>
       </div>
 
-
     </div>
 
     <div class='gameOver' *ngIf='room.roundWon'>
       <h1>GAME OVER</h1>
-      <button type='button' routerLink='/'>Exit</button>
-      <button type='button' (click)='continue()'>Continue</button>
+      <div>
+        <button type='button' routerLink='/'>Exit</button>
+        <button type='button' (click)='continue()'>Continue</button>
+      </div>
     </div>
   </div>
 

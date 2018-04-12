@@ -3,8 +3,18 @@
 .gameOver {
   z-index: 10;
   position: fixed;
-  top: 40%;
-  left: 35%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  font-family: batmfa, sans-serif;
+  font-size: 30px;
 }
 
 .content {
@@ -152,5 +162,66 @@
 }
 
 .infosPlayers {
-  width: 30%;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  font-family: batmfa, sans-serif;
+  color: white;
+}
+
+.scorePlayers {
+  display: flex;
+  justify-content: space-around;
+}
+
+.blason {
+  height: 100px;
+  width: 80px;
+  background: url('../../../img/blason.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-family: batmfa, sans-serif;
+  padding-top: 30px;
+  color: white;
+  text-shadow: 0 0 2px black;
+}
+
+#infoPlayer2 {
+  position: absolute;
+  right: 0;
+  top: 10vh;
+}
+
+#infoPlayer1 {
+  position: absolute;
+  left: 0;
+  top: 10vh;
+}
+
+.trophy {
+  height: 100px;
+  width: 80px;
+  background: url('../../../img/trophy.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 20px;
+  font-size: 15px;
+  font-family: batmfa, sans-serif;
+  color: white;
+  text-shadow: 0 0 2px black;
+}
+
+.namePlayers {
+  font-size: 25px;
+  font-family: batmfa, sans-serif;
+  color: gold;
 }

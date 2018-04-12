@@ -3,11 +3,24 @@
 .gameOver {
   z-index: 10;
   position: fixed;
-  top: 40%;
-  left: 35%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  font-family: batmfa, sans-serif;
+  font-size: 30px;
 }
 
 .content {
+  position: absolute;
+  width: 100%;
+  top: 55vh;
   display: flex;
   justify-content: space-around;
 }
@@ -15,6 +28,11 @@
 .interface {
   display: flex;
   align-items: stretch;
+  background-image: url("../../../img/gifBattle.gif");
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  width: 100%;
 }
 
 .game {
@@ -22,13 +40,225 @@
 }
 
 .history {
-  flex-grow: 1;
-  border-left: 1px solid #000;
-  text-indent: 10px;
-  height: 90vh;
-  width: 20vw;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  position: absolute;
+  top: 10vh;
+  left: 30vw;
+  height: 25vh;
+  width: 40vw;
+  overflow-x: hidden;
+  overflow-y: visible;
+  font-size: 30px;
+  font-family: batmfa, sans-serif;
+}
+
+#historyMask {
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 10vh;
+  left: 30vw;
+  height: 18vh;
+  width: 39vw;
+}
+
+.wait {
+  background-image: url("../../../img/joker.gif");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  top: 50vh;
   display: flex;
-  flex-wrap: wrap;
-  align-content: space-between;
-  overflow: scroll;
+  justify-content: center;
+  align-items: top;
+}
+
+.textWait {
+  display: block;
+  height: 50px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-family: batmfa, sans-serif;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: none;
+  border-radius: 10px;
+  border: 1px solid silver;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  border: 1px solid gray;
+}
+
+.matchMaking {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: batmfa, sans-serif;
+  font-size: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#btnPaper {
+  background-image: url("../../../img/batPaper.png");
+}
+
+#btnscissors {
+  background-image: url("../../../img/batScissors.png");
+}
+
+#btnStone {
+  background-image: url("../../../img/batStone.png");
+}
+
+#btnPaper:hover,
+#btnscissors:hover,
+#btnStone:hover {
+  -webkit-animation-name: example;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s;
+  /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 1s;
+}
+
+@-webkit-keyframes example {
+  from {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes example {
+  from {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.btnAttack {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 3px solid goldenrod;
+  border-radius: 100%;
+  height: 200px;
+  width: 300px;
+  cursor: pointer;
+}
+
+#yourTurn {
+  position: fixed;
+  z-index: 2;
+  top: 40vh;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-family: arcade, sans-serif;
+  color: gold;
+  font-weight: bold;
+}
+
+.infosPlayers {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  font-family: batmfa, sans-serif;
+  color: white;
+}
+
+.scorePlayers {
+  display: flex;
+  justify-content: space-around;
+}
+
+.blason {
+  height: 100px;
+  width: 80px;
+  background: url('../../../img/blason.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-family: batmfa, sans-serif;
+  padding-top: 30px;
+  color: white;
+  text-shadow: 0 0 2px black;
+}
+
+#infoPlayer2 {
+  position: absolute;
+  right: 0;
+  top: 10vh;
+}
+
+#infoPlayer1 {
+  position: absolute;
+  left: 0;
+  top: 10vh;
+}
+
+.trophy {
+  height: 100px;
+  width: 80px;
+  background: url('../../../img/trophy.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 20px;
+  font-size: 15px;
+  font-family: batmfa, sans-serif;
+  color: white;
+  text-shadow: 0 0 2px black;
+}
+
+.namePlayers {
+  font-size: 25px;
+  font-family: batmfa, sans-serif;
+  color: gold;
 }

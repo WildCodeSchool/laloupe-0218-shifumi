@@ -1,5 +1,8 @@
 # Shifumi
 
+Our challenge for this project was to reproduce the shifumi game(set,play) with player's system against on-line player with an authentification via Google, to develop with the framework angular4 (http: // angular.io) and a database to manage on firebase (http: // firebase. Google.com).
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
 ## Development server

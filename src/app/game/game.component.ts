@@ -60,7 +60,6 @@ export class GameComponent implements OnInit, OnDestroy {
       var elem = document.getElementById('history');
       elem.scrollTop = elem.scrollHeight;
     }, 2000);
-
   }
 
   ngOnDestroy() {
@@ -87,7 +86,6 @@ export class GameComponent implements OnInit, OnDestroy {
   }
 
   isMyTurn(): boolean {
-
     this.victoryPlayer1 = this.room.players[0].victory;
     this.victoryPlayer2 = this.room.players[1].victory;
     this.scoreJ1 = this.room.players[0].roundWin;

@@ -22,9 +22,9 @@
             <p>c'est ton tour</p>
 
             <div class='content'>
-              <button type='button' (click)='pierre()'>Pierre</button>
-              <button type='button' (click)='feuille()'>Feuille</button>
-              <button type='button' (click)='ciseaux()'>Ciseaux</button>
+              <button class="btnAttack" id="btnPaper" type='button' (click)='feuille()'></button>
+              <button class="btnAttack" id="btnscissors" type='button' (click)='ciseaux()'></button>
+              <button class="btnAttack" id="btnStone" type='button' (click)='pierre()'></button>
             </div>
           </div>
 
@@ -40,10 +40,12 @@
           </div>
 
           <div class='history' id="history">
-            <div style='width: 100%;'>
-              <div *ngFor='let item of this.room.matchLog'>{{item}}</div>
-            </div>
+            <div id="historyMask"></div>
+
+            <div *ngFor='let item of this.room.matchLog'>{{item}}</div>
+
           </div>
+
         </div>
       </div>
 

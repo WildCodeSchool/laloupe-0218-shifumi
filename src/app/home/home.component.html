@@ -1,5 +1,5 @@
 <div class="flexPage">
-  <div ng-init='rulesClic' *ngIf='rulesClic == 1; then azerty else qwerty'></div>
+  <div *ngIf='rulesClic == 1; then azerty else qwerty'></div>
 
   <ng-template #qwerty>
     <button class="ruleBtn" type="button" (click)='rulesClic = 1'>Rules</button>

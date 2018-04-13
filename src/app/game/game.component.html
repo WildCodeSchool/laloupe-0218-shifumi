@@ -14,48 +14,74 @@
 <ng-template #authenticated>
   <div *ngIf='room'>
     <div class='interface'>
+
       <div class='game'>
         <div *ngIf='room && room.players.length > 1'>
 
           <div *ngIf='isMyTurn(); else elseBlock'>
-            <p>c'est ton tour</p>
+
+            <div id="yourTurn">
+              <p>choose your weapon to attack Joker</p>
+            </div>
+
             <div class='content'>
-              <button type='button' (click)='pierre()'>Pierre</button>
-              <button type='button' (click)='feuille()'>Feuille</button>
-              <button type='button' (click)='ciseaux()'>Ciseaux</button>
+              <button class="btnAttack" id="btnPaper" type='button' (click)='feuille()'></button>
+              <button class="btnAttack" id="btnscissors" type='button' (click)='ciseaux()'></button>
+              <button class="btnAttack" id="btnStone" type='button' (click)='pierre()'></button>
             </div>
           </div>
 
           <ng-template #elseBlock>
-            <p>c'est pas ton tour</p>
+            <div class="wait">
+              <p class="textWait">please wait ! Joker is attacking you</p>
+            </div>
           </ng-template>
 
-        </div>
+          <div class="infosPlayers" id="infoPlayer1">
+            <p class="namePlayers"> {{player1}} </p>
+            <div class="scorePlayers">
+              <div class="blason">
+                <p>rounds</p>
+                <p>{{scoreJ1}}</p>
+              </div>
+              <div class="trophy">{{victoryPlayer1}}</div>
+            </div>
+          </div>
 
+          <div class="infosPlayers" id="infoPlayer2">
+            <p class="namePlayers"> {{player2}} </p>
+            <div class="scorePlayers">
+              <div class="trophy">{{victoryPlayer2}}</div>
+              <div class="blason">
+                <p>rounds</p>
+                <p>{{scoreJ2}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class='history' id="history">
+
+            <div *ngFor='let item of this.room.matchLog'>{{item}}</div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="matchMaking" *ngIf="room && room.players.length == 1">
         <p>
           {{message}}
         </p>
-
       </div>
 
-      <div class='history'>
-
-        <div style='width: 100%;'>
-          <div *ngFor='let item of this.room.matchLog'>{{item}}</div>
-        </div>
-
-        <div style='width: 100%;'>
-          <p> {{player1}} he won {{scoreJ1}} rounds and {{victoryPlayer1}} victory</p>
-          <p> {{player2}} he won {{scoreJ2}} rounds and {{victoryPlayer2}} victory</p>
-        </div>
-
-      </div>
     </div>
 
     <div class='gameOver' *ngIf='room.roundWon'>
       <h1>GAME OVER</h1>
-      <button type='button' routerLink='/'>Exit</button>
-      <button type='button' (click)='continue()'>Continue</button>
+      <div>
+        <button type='button' routerLink='/'>Exit</button>
+        <button type='button' (click)='continue()'>Continue</button>
+      </div>
     </div>
   </div>
 

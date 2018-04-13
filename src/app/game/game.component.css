@@ -54,16 +54,6 @@
   font-family: batmfa, sans-serif;
 }
 
-#historyMask {
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  top: 10vh;
-  left: 30vw;
-  height: 18vh;
-  width: 39vw;
-}
-
 .wait {
   background-image: url("../../../img/joker.gif");
   background-position: center;

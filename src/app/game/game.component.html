@@ -80,7 +80,7 @@
     <div class='gameOver' *ngIf='room.roundWon'>
       <h1>GAME OVER</h1>
       <div>
-        <button type='button' routerLink='/'>Exit</button>
+        <button type='button' (click)='deleteRoom()' routerLink='/'>Exit</button>
         <button type='button' (click)='continue()'>Continue</button>
       </div>
     </div>

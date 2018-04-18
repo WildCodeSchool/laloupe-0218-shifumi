@@ -1,1 +1,16 @@
-/*azerty*/
+.ctnImg {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.loading {
+  height: 200px;
+  width: 200px;
+  background-image: url("../../../img/bat-load.gif");
+  background-position: center;
+  background-size: cover;
+}

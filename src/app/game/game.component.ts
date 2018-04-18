@@ -8,7 +8,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 
@@ -36,7 +36,8 @@ export class GameComponent implements OnInit, OnDestroy {
   rooms: Observable<any[]>;
   sub: Subscription;
   constructor(
-    private route: ActivatedRoute, public auth: AuthService, private db: AngularFirestore) {
+    private route: ActivatedRoute, public auth: AuthService, private db: AngularFirestore,
+    private router: Router) {
     this.rooms = db.collection('rooms').valueChanges();
   }
   ngOnInit() {
@@ -48,6 +49,9 @@ export class GameComponent implements OnInit, OnDestroy {
       .valueChanges()
       .subscribe((room) => {
         this.room = room;
+        if (!room) {
+          this.router.navigate(['home']);
+        }
         this.myPlayerId = room.players[0].name === this.username ? 0 : 1;
         if (room.players.length === 2) {
           this.message = '';
@@ -168,6 +172,10 @@ export class GameComponent implements OnInit, OnDestroy {
     this.room.count = this.room.count + 1;
     this.manche();
     this.db.doc('rooms/' + this.roomId).update(JSON.parse(JSON.stringify(this.room)));
+  }
+
+  deleteRoom() {
+    this.db.doc<Room>('rooms/' + this.roomId).delete().then(() => { });
   }
 
 }

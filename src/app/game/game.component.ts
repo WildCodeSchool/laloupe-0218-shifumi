@@ -36,7 +36,8 @@ export class GameComponent implements OnInit, OnDestroy {
   rooms: Observable<any[]>;
   sub: Subscription;
   constructor(
-    private route: ActivatedRoute, public auth: AuthService, private db: AngularFirestore, private router: Router) {
+    private route: ActivatedRoute, public auth: AuthService, private db: AngularFirestore,
+    private router: Router) {
     this.rooms = db.collection('rooms').valueChanges();
   }
   ngOnInit() {
@@ -60,7 +61,9 @@ export class GameComponent implements OnInit, OnDestroy {
       });
     function interv() {
       const elem = document.getElementById('history');
-      elem.scrollTop = elem.scrollHeight;
+      if (elem) {
+        elem.scrollTop = elem.scrollHeight;
+      }
     }
     setInterval(interv, 2000);
   }

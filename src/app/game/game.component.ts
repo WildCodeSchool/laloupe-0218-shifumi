@@ -61,7 +61,9 @@ export class GameComponent implements OnInit, OnDestroy {
       });
     function interv() {
       const elem = document.getElementById('history');
-      elem.scrollTop = elem.scrollHeight;
+      if (elem) {
+        elem.scrollTop = elem.scrollHeight;
+      }
     }
     setInterval(interv, 2000);
   }
